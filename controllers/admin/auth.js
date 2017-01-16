@@ -4,7 +4,6 @@ var db = require('../../models/db');
 // db
 	var mongoose = require('mongoose');
 	var members = require('../../models/admin/member_model');
-	// var memberCollection = members.memberCollection();
 var md5 = require('md5');
 
 
@@ -21,22 +20,7 @@ module.exports = {
 			console.log(resAuth)
 		});
 		
-		// members.findUsername(username, function(resFind) {
-		// 	if (resFind.length>0) {
-		// 		console.log('checking');
-		// 		// res.redirect(refererURL);
-		// 		// members.authMember(username, password);
-		// 	}
-		// 	else {
-				
-
-		// 		// arrJson = [{'username': username, 'password': password}];
-		// 		// members.addNew(arrJson, function() {
-		// 		// 	res.redirect(baseUrl + '/admin');
-		// 		// })
-		// 		console.log('OK')
-		// 	}
-		// });
+		
 		
     }
 }
