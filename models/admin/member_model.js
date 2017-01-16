@@ -31,19 +31,19 @@ exports.findUsername = function findUsername(username, callback) {
 // login auth Member
 exports.authMember = function authMember(username, password, callback) {
 	db.openConnection();
-		
-		passport.use(new LocalStrategy( function(username, passwor, done) {
+		passport.use(new LocalStrategy( function(username, password, done) {
 			Members.find({ username: username }, function(err, user) {
-				if (err) { callback(done(err)); }
+				if (err) { return done(err); }
 				if (!user) {
-					callback(done(null, false, { message: 'Incorrect username.' }));
+					return done(null, false, { message: 'Incorrect username.' });
 				}
 				if (!user.validPassword(password)) {
-					callback(done(null, true, { message: 'Incorrect password' }));
+					return done(null, true, { message: 'Incorrect password' });
 				}
-				callback(done(null, user));
+				return done(null, user);
 			});
 		}));
+		callback();
 	db.closeConnection();
 }
 

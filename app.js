@@ -63,8 +63,8 @@ var port = jsonConfig.env.port;
 	}));
 
 // passport
-	var passport = require('passport');
-	app.use(passport.initialize());
+	// var passport = require('passport');
+	// app.use(passport.initialize());
 
 // app start
 	app.listen(port, host, function() {

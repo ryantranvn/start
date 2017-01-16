@@ -6,6 +6,8 @@ var db = require('../../models/db');
 	var members = require('../../models/admin/member_model');
 var md5 = require('md5');
 
+var passport = require('passport')
+var LocalStrategy = require('passport-local').Strategy;
 
 // site
 module.exports = {
@@ -16,10 +18,10 @@ module.exports = {
 		var refererURL = req.headers.referer;
 		var username = req.body.username;
 		var password = md5(req.body.password);
-		members.authMember(username, password, function(resAuth) {
-			console.log(resAuth)
-		});
 		
+		members.authMember(username, password, function() {
+			console.log('HERE')
+		});
 		
 		
     }
